@@ -1,4 +1,6 @@
 const express = require("express");
+const categoriesData = require("./data/categoriesData");
+const popularData = require("./data/popularData");
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -10,8 +12,15 @@ app.get("/api", (req, res) => {
   });
 });
 
+app.get("/api/pizza", (req, res) => {
+  res.json({
+    popular: popularData,
+    categories: categoriesData,
+  });
+});
+
 // Port:
-const PORT = process.env.port || 9000;
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () =>
   console.log(`Server Running On http://localhost:${PORT}/`)
