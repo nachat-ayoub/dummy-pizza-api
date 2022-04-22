@@ -22,6 +22,14 @@ app.get("/api/pizza", (req, res) => {
   });
 });
 
+app.get("/api/", (req, res) => {
+  res.redirect("/api/pizza/");
+});
+
+app.get("", (req, res) => {
+  res.redirect("/api/");
+});
+
 // Port:
 const PORT = process.env.PORT || 9000;
 
