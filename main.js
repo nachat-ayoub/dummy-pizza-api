@@ -1,7 +1,10 @@
 const express = require("express");
+const app = express();
+
+require("dotenv").config();
+
 const categoriesData = require("./data/categoriesData");
 const popularData = require("./data/popularData");
-const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
